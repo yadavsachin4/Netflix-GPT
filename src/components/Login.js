@@ -92,9 +92,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src={LOGO}
-        />
+        <img src={LOGO} />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
