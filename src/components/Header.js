@@ -85,7 +85,7 @@ const Header = () => {
           <img
             className="hidden md:block w-12 h-12 "
             alt="usericon"
-            src={user?.photoURL}
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/avatar-random-person-man-58401.png?f=webp&w=512"
           />
           <button onClick={handleSignout} className="font-bold text-white">
             (Sign Out)
