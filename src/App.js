@@ -5,10 +5,9 @@ import appStore from "./components/utils/appStore.js";
 
 function App() {
   return (
-
     <Provider store={appStore}>
-  <Body/>
-  </Provider>
+      <Body />
+    </Provider>
   );
 }
 

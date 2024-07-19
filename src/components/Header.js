@@ -17,7 +17,9 @@ const Header = () => {
 
   const handleSignout = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        dispatch(removerUser())
+      })
       .catch((error) => {
         navigate("/error");
       });
@@ -52,18 +54,18 @@ const Header = () => {
     dispatch(ChangeLanguage(e.target.value));
   };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between  ">
       <img
-        className="w-44"
+        className="w-24 md:w-44 mx-auto md:mx-0  -my-2"
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         alt="logo"
       />
 
       {user && (
-        <div className="flex p-2 ">
+        <div className="flex p-2 justify-between">
           {showgptSearch && (
             <select
-              className="p-2 m-2 bg-gray-900 text-white"
+              className="my-2 p-1 md:p-2 md:m-2 bg-gray-900 text-white text-sm md:text-lg"
               onChange={handleLanguagechange}
             >
               {SUPPORTED_LANGUAGE.map((lang) => (
@@ -75,12 +77,16 @@ const Header = () => {
           )}
 
           <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            className="py-2 px-2 my-3 md:py-2 md:px-4  md:mx-4  md:my-2 bg-purple-800 text-white text-sm  md:text-lg rounded-lg"
             onClick={handleGptSearchClick}
           >
-            {showgptSearch?"HomePage":"GPT Search"}
+            {showgptSearch ? "HomePage" : "GPT Search"}
           </button>
-          <img className="w-12 h-12" alt="usericon" src={user?.photoURL} />
+          <img
+            className="hidden md:block w-12 h-12 "
+            alt="usericon"
+            src={user?.photoURL}
+          />
           <button onClick={handleSignout} className="font-bold text-white">
             (Sign Out)
           </button>
